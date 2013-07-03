@@ -1,0 +1,98 @@
+find_library: checking for /usr/local/lib()... -------------------- -ltalib
+
+"gcc -o conftest -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -Iext/talib     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -Wl,-R/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(void) {return 0;}
+/* end */
+
+"gcc -o conftest -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -Iext/talib     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -Wl,-R/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -lruby -ltalib  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:6:57: error: expected expression before ‘/’ token
+conftest.c:6:32: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))/usr/local/lib; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -Iext/talib     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -Wl,-R/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -lruby -ltalib  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:6:15: error: expected expression before ‘/’ token
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { /usr/local/lib(); return 0; }
+/* end */
+
+"gcc -o conftest -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -Iext/talib     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -Wl,-R/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/usr/local/blah -Wl,-R/usr/local/blah -L. -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -lruby -ltalib  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:6:57: error: expected expression before ‘/’ token
+conftest.c:6:32: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))/usr/local/lib; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -Iext/talib     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -Wl,-R/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/usr/local/blah -Wl,-R/usr/local/blah -L. -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -lruby -ltalib  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:6:15: error: expected expression before ‘/’ token
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { /usr/local/lib(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for TA_Initialize() in -lta_lib... -------------------- yes
+
+"gcc -o conftest -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -Iext/talib     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -Wl,-R/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -lruby -lta_lib  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:6:57: error: ‘TA_Initialize’ undeclared (first use in this function)
+conftest.c:6:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:6:32: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))TA_Initialize; return 0; }
+/* end */
+
+"gcc -o conftest -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-linux -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/home/david/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -Iext/talib     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fPIC conftest.c  -L. -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -Wl,-R/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -L/home/david/.rvm/rubies/ruby-2.0.0-p0/lib -lruby -lta_lib  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:6:1: warning: implicit declaration of function ‘TA_Initialize’ [-Wimplicit-function-declaration]
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { TA_Initialize(); return 0; }
+/* end */
+
+--------------------
+
